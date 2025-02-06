@@ -56,7 +56,7 @@ resource "aws_vpc" "campaigns-resource_ckaMshbmm94dxCHA" {
 }
 
 resource "aws_subnet" "campaigns-subnet-resource_ckaMshbmm94dxCHA" {
-  vpc_id            = aws_vpc.example.id
+  vpc_id            = aws_vpc.campaigns-resource_ckaMshbmm94dxCHA.id
   cidr_block        = "172.16.10.0/24"
   availability_zone = "us-east-2a"
 
