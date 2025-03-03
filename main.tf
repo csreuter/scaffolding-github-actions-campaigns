@@ -28,14 +28,6 @@ resource "aws_s3_bucket_versioning" "campaigns-resource_ckaMshbmm94dxMYO" {
   }
 }
 
-# KMS Key for RDS Encryption
-resource "aws_kms_key" "example-rds_457SwZ4yAAv47zpt_kmskey" {
-  description             = "KMS key for encrypting example-rds RDS instance"
-  key_usage               = "ENCRYPT_DECRYPT"
-  is_enabled              = true
-  deletion_window_in_days = 30
-}
-
 # RDS Instance with Best Practices
 resource "aws_db_instance" "example-rds_457SwZ4yAAv47zpt" {
   identifier                   = "example-rds"
@@ -48,8 +40,6 @@ resource "aws_db_instance" "example-rds_457SwZ4yAAv47zpt" {
   username                     = "db_user"
   password                     = "my-password"
   backup_retention_period      = 7
-  storage_encrypted            = false
-  kms_key_id                   = aws_kms_key.example-rds_457SwZ4yAAv47zpt_kmskey.arn
   multi_az                     = true
   deletion_protection          = true
   performance_insights_enabled = true
