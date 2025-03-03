@@ -28,20 +28,4 @@ resource "aws_s3_bucket_versioning" "campaigns-resource_ckaMshbmm94dxMYO" {
   }
 }
 
-# RDS Instance with Best Practices
-resource "aws_db_instance" "example-rds_457SwZ4yAAv47zpt" {
-  identifier                   = "example-rds"
-  engine                       = "postgres"
-  engine_version               = "14.1"
-  instance_class               = "db.m1.small"
-  allocated_storage            = 20
-  max_allocated_storage        = 100
-  db_name                      = "app_database"
-  username                     = "db_user"
-  password                     = "my-password"
-  backup_retention_period      = 7
-  multi_az                     = true
-  deletion_protection          = true
-  performance_insights_enabled = true
-  skip_final_snapshot          = false
-}
+
