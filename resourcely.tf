@@ -10,7 +10,9 @@ resource "terraform_data" "resourcely_context_answers" {
           "resource.aws_kms_key.example-rds_457SwZ4yAAv47zpt_kmskey",
           "resource.aws_db_instance.example-rds_457SwZ4yAAv47zpt",
           "resource.aws_kms_key.kmskey_HyK3hBPRDjhLpTT9",
-          "resource.aws_db_instance.example-rds_mq66xDMcEGMGZMbZ"
+          "resource.aws_db_instance.example-rds_mq66xDMcEGMGZMbZ",
+          "resource.aws_kms_key.kmskey_YQxK9CH3weQj5E7Y",
+          "resource.aws_db_instance.example-rds_YDW8SL8PdmHMCwDu"
         ],
         "gdpr_apply" : "Yes"
       }
