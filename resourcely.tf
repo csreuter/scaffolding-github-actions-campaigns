@@ -8,7 +8,9 @@ resource "terraform_data" "resourcely_context_answers" {
       {
         "$applies_to" : [
           "resource.aws_kms_key.example-rds_457SwZ4yAAv47zpt_kmskey",
-          "resource.aws_db_instance.example-rds_457SwZ4yAAv47zpt"
+          "resource.aws_db_instance.example-rds_457SwZ4yAAv47zpt",
+          "resource.aws_kms_key.kmskey_HyK3hBPRDjhLpTT9",
+          "resource.aws_db_instance.example-rds_mq66xDMcEGMGZMbZ"
         ],
         "gdpr_apply" : "Yes"
       }
