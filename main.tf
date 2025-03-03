@@ -48,7 +48,8 @@ resource "aws_db_instance" "example-rds_TJXZTFi3qSy724Fv" {
   username                     = "db_user"
   password                     = "password"
   backup_retention_period      = 7
-  storage_encrypted            = false
+  storage_encrypted            = true
+  kms_key_id                   = aws_kms_key.kmskey_6rqH9awtV732LCTF.arn
   multi_az                     = true
   deletion_protection          = true
   performance_insights_enabled = true
