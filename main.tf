@@ -28,31 +28,3 @@ resource "aws_s3_bucket_versioning" "campaigns-resource_ckaMshbmm94dxMYO" {
   }
 }
 
-
-# KMS Key for RDS Encryption
-resource "aws_kms_key" "kmskey_HyK3hBPRDjhLpTT9" {
-  description             = "KMS key for encrypting an RDS instance"
-  key_usage               = "ENCRYPT_DECRYPT"
-  is_enabled              = true
-  deletion_window_in_days = 30
-}
-
-# RDS Instance with Best Practices
-resource "aws_db_instance" "example-rds_mq66xDMcEGMGZMbZ" {
-  identifier                   = "example-rds"
-  engine                       = "postgres"
-  engine_version               = "17.2"
-  instance_class               = "db.t3.micro"
-  allocated_storage            = 20
-  max_allocated_storage        = 100
-  db_name                      = "app_database"
-  username                     = "db_user"
-  password                     = "my-password"
-  backup_retention_period      = 7
-  storage_encrypted            = false
-  kms_key_id                   = aws_kms_key.kmskey_HyK3hBPRDjhLpTT9.id
-  multi_az                     = true
-  deletion_protection          = true
-  performance_insights_enabled = true
-  skip_final_snapshot          = false
-}
