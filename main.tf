@@ -54,3 +54,30 @@ resource "aws_db_instance" "example-rds_TJXZTFi3qSy724Fv" {
   performance_insights_enabled = true
   skip_final_snapshot          = true
 }
+
+# RDS Instance with Best Practices
+resource "aws_db_instance" "example-rds_dbxuccnwDdQS2vxg" {
+  identifier                   = "example-rds"
+  engine                       = "postgres"
+  engine_version               = "17.2"
+  instance_class               = "db.t3.micro"
+  allocated_storage            = 20
+  max_allocated_storage        = 100
+  db_name                      = "app_database"
+  username                     = "db_user"
+  password                     = "password"
+  backup_retention_period      = 7
+  storage_encrypted            = true
+  multi_az                     = true
+  deletion_protection          = true
+  performance_insights_enabled = false
+  skip_final_snapshot          = false
+}
+
+# KMS Key for RDS Encryption
+resource "aws_kms_key" "kmskey_ygFHw965iCRqSfv7" {
+  description             = "KMS key for encrypting an RDS instance"
+  key_usage               = "ENCRYPT_DECRYPT"
+  is_enabled              = true
+  deletion_window_in_days = 30
+}
