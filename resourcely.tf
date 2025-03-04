@@ -19,7 +19,10 @@ resource "terraform_data" "resourcely_context_answers" {
         "gdpr_apply" : "Yes"
       },
       {
-        "$applies_to" : "resource.aws_db_instance.example-rds_TJXZTFi3qSy724Fv",
+        "$applies_to" : [
+          "resource.aws_db_instance.example-rds_TJXZTFi3qSy724Fv",
+          "resource.aws_db_instance.example-rds_HNCtaktzEpj7kGAb"
+        ],
         "gdpr_apply" : "No"
       }
     ]
