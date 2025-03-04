@@ -49,7 +49,7 @@ resource "aws_db_instance" "example-rds_TJXZTFi3qSy724Fv" {
   password                     = "password"
   backup_retention_period      = 7
   storage_encrypted            = false
-  multi_az                     = true
+  multi_az                     = false
   deletion_protection          = true
   performance_insights_enabled = true
   skip_final_snapshot          = true
