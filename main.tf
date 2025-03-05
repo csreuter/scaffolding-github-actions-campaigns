@@ -171,7 +171,7 @@ resource "aws_iam_group_policy_attachment" "my-iam-group_dzNUazB945E6fZSj_policy
   policy_arn = resource.aws_iam_policy.overly-permissive-policy_0.arn
 }
 
-resource "aws_iam_policy" "overly-permissive-policy_0" {
+resource "aws_iam_policy" "overly_permissive_policy" {
   name        = "overly-permissive-policy"
   description = "Custom IAM policy for my-iam-group group."
   policy = jsonencode({
@@ -181,16 +181,10 @@ resource "aws_iam_policy" "overly-permissive-policy_0" {
         Action = [
           "rds:*"
         ]
-        Effect = [
-          "Allow"
-        ]
-
-        Resource = [
-
-          "*",
-
-        ]
-      },
+        Effect = "Allow"
+        Resource = ["*"]
+      }
     ]
   })
 }
+
