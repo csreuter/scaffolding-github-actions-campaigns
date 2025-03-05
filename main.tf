@@ -94,7 +94,7 @@ resource "aws_security_group" "web-server-sg_gJMP4fnXzbWhixq5" {
 resource "aws_subnet" "public-subnet-1_d4E3eQNPyyfkPQiz" {
   vpc_id                  = aws_vpc.example-vpc_Ce28TLUr3w7XWNgi.id
   cidr_block              = "10.0.1.0/24"
-  availability_zone       = us-west-2a"
+  availability_zone       = "us-west-2a"
   map_public_ip_on_launch = false
   tags = {
     owner = "Chris"
