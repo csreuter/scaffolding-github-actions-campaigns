@@ -182,7 +182,7 @@ resource "aws_iam_policy" "overly-permissive-policy_0" {
           "rds:*"
         ]
         Effect = "Allow"
-        Resource = ["*"]
+        Resource = ["aws:arn:rds:dasjklfjdaslkf:db"]
       }
     ]
   })
