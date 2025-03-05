@@ -14,7 +14,11 @@ resource "terraform_data" "resourcely_context_answers" {
           "resource.aws_kms_key.kmskey_YQxK9CH3weQj5E7Y",
           "resource.aws_db_instance.example-rds_YDW8SL8PdmHMCwDu",
           "resource.aws_kms_key.kmskey_6rqH9awtV732LCTF",
-          "resource.aws_db_instance.example-rds_kB9bGDNyJmy9WPbv"
+          "resource.aws_db_instance.example-rds_kB9bGDNyJmy9WPbv",
+          "resource.aws_vpc.example-vpc_Ce28TLUr3w7XWNgi",
+          "resource.aws_security_group.web-server-sg_gJMP4fnXzbWhixq5",
+          "resource.aws_subnet.public-subnet-1_d4E3eQNPyyfkPQiz",
+          "resource.aws_elb.example-elb_abbxUgDfSDdM4PXf"
         ],
         "gdpr_apply" : "Yes"
       },
