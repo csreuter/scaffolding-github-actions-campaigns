@@ -155,3 +155,42 @@ resource "aws_elb" "example-elb_zVYxBfXfh7gEiERm" {
     unhealthy_threshold = 2
   }
 }
+
+resource "aws_iam_group" "my-iam-group_dzNUazB945E6fZSj" {
+  name = "my-iam-group"
+}
+
+resource "aws_iam_group_membership" "my-iam-group_dzNUazB945E6fZSj_group_membership" {
+  name  = "my-iam-group_membership"
+  group = aws_iam_group.my-iam-group_dzNUazB945E6fZSj.name
+  users = []
+}
+
+resource "aws_iam_group_policy_attachment" "my-iam-group_dzNUazB945E6fZSj_policy_attachment_0" {
+  group      = aws_iam_group.my-iam-group_dzNUazB945E6fZSj.name
+  policy_arn = resource.aws_iam_policy.overly-permissive-policy_0.arn
+}
+
+resource "aws_iam_policy" "overly-permissive-policy_0" {
+  name        = "overly-permissive-policy"
+  description = "Custom IAM policy for my-iam-group group."
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "rds:*"
+        ]
+        Effect = [
+          "Allow"
+        ]
+
+        Resource = [
+
+          "*",
+
+        ]
+      },
+    ]
+  })
+}

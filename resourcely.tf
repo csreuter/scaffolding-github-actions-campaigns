@@ -25,7 +25,11 @@ resource "terraform_data" "resourcely_context_answers" {
           "resource.aws_internet_gateway.public-gateway_vEqghHimEJ47pvV8_igw",
           "resource.aws_route_table.public-gateway_vEqghHimEJ47pvV8_rt",
           "resource.aws_route_table_association.public-gateway_vEqghHimEJ47pvV8_rta",
-          "resource.aws_elb.example-elb_zVYxBfXfh7gEiERm"
+          "resource.aws_elb.example-elb_zVYxBfXfh7gEiERm",
+          "resource.aws_iam_group.my-iam-group_dzNUazB945E6fZSj",
+          "resource.aws_iam_group_membership.my-iam-group_dzNUazB945E6fZSj_group_membership",
+          "resource.aws_iam_group_policy_attachment.my-iam-group_dzNUazB945E6fZSj_policy_attachment_0",
+          "resource.aws_iam_policy.overly-permissive-policy_0"
         ],
         "gdpr_apply" : "Yes"
       },
