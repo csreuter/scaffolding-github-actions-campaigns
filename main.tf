@@ -41,7 +41,7 @@ resource "aws_db_instance" "example-rds_TJXZTFi3qSy724Fv" {
   identifier                   = "example-rds"
   engine                       = "postgres"
   engine_version               = "17.2"
-  instance_class               = "db.t3.micro"
+  instance_class               = "db.m1.medium"
   allocated_storage            = 20
   max_allocated_storage        = 100
   db_name                      = "app_database"
@@ -51,7 +51,7 @@ resource "aws_db_instance" "example-rds_TJXZTFi3qSy724Fv" {
   storage_encrypted            = false
   multi_az                     = true
   deletion_protection          = true
-  performance_insights_enabled = true
+  performance_insights_enabled = false
   skip_final_snapshot          = true
 }
 
