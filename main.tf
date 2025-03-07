@@ -189,3 +189,21 @@ resource "aws_iam_policy" "overly-permissive-policy_0" {
 }
 
 
+# RDS Instance with Best Practices
+resource "aws_db_instance" "my-rds-database-for-demo_eZwkQ7ngtahuC5QP" {
+  identifier                   = "my-rds-database-for-demo"
+  engine                       = "postgres"
+  engine_version               = "17.2"
+  instance_class               = "db.t3.micro"
+  allocated_storage            = 20
+  max_allocated_storage        = 100
+  db_name                      = "app_database"
+  username                     = "db_user"
+  password                     = "password"
+  backup_retention_period      = 7
+  storage_encrypted            = false
+  multi_az                     = false
+  deletion_protection          = true
+  performance_insights_enabled = false
+  skip_final_snapshot          = false
+}
