@@ -51,7 +51,7 @@ resource "aws_db_instance" "example-rds_TJXZTFi3qSy724Fv" {
   storage_encrypted            = false
   multi_az                     = true
   deletion_protection          = true
-  performance_insights_enabled = true
+  performance_insights_enabled = false
   skip_final_snapshot          = true
 }
 
