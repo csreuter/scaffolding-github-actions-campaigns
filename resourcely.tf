@@ -36,6 +36,11 @@ resource "terraform_data" "resourcely_context_answers" {
       {
         "$applies_to" : "resource.aws_db_instance.example-rds_TJXZTFi3qSy724Fv",
         "gdpr_apply" : "No"
+      },
+      {
+        "$applies_to" : "resource.aws_db_instance.example-rds_pHtUengvCmjugdNu",
+        "env" : "prod",
+        "gdpr_apply" : "Yes"
       }
     ]
   }
