@@ -53,6 +53,45 @@ resource "aws_db_instance" "example-rds_TJXZTFi3qSy724Fv" {
   deletion_protection          = true
   performance_insights_enabled = true
   skip_final_snapshot          = true
+  tags = {
+    backup = "false"
+  }
+}
+
+resource "aws_db_instance" "key-application-dev" {
+  identifier                   = "example-rds"
+  engine                       = "postgres"
+  engine_version               = "17.2"
+  instance_class               = "db.t3.micro"
+  allocated_storage            = 20
+  max_allocated_storage        = 100
+  db_name                      = "app_database"
+  username                     = "db_user"
+  password                     = "password"
+  backup_retention_period      = 7
+  storage_encrypted            = false
+  multi_az                     = true
+  deletion_protection          = true
+  performance_insights_enabled = true
+  skip_final_snapshot          = true
+}
+
+resource "aws_db_instance" "key-application-prod" {
+  identifier                   = "example-rds"
+  engine                       = "postgres"
+  engine_version               = "17.2"
+  instance_class               = "db.t3.micro"
+  allocated_storage            = 20
+  max_allocated_storage        = 100
+  db_name                      = "app_database"
+  username                     = "db_user"
+  password                     = "password"
+  backup_retention_period      = 7
+  storage_encrypted            = false
+  multi_az                     = true
+  deletion_protection          = true
+  performance_insights_enabled = true
+  skip_final_snapshot          = true
 }
 
 # AWS Virtual Private Cloud (VPC)
