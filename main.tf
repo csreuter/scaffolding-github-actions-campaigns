@@ -54,7 +54,7 @@ resource "aws_db_instance" "example-rds_TJXZTFi3qSy724Fv" {
   performance_insights_enabled = true
   skip_final_snapshot          = true
   tags = {
-    backup = "false"
+    backup = "true"
   }
 }
 
@@ -92,6 +92,9 @@ resource "aws_db_instance" "key-application-prod" {
   deletion_protection          = true
   performance_insights_enabled = true
   skip_final_snapshot          = true
+  tags = {
+    backup = "true"
+  }
 }
 
 # AWS Virtual Private Cloud (VPC)
