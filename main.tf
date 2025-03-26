@@ -59,7 +59,7 @@ resource "aws_db_instance" "example-rds_TJXZTFi3qSy724Fv" {
 }
 
 resource "aws_db_instance" "key-application-dev" {
-  identifier                   = "example-rds"
+  identifier                   = "key-application-dev"
   engine                       = "postgres"
   engine_version               = "17.2"
   instance_class               = "db.t3.micro"
@@ -77,7 +77,7 @@ resource "aws_db_instance" "key-application-dev" {
 }
 
 resource "aws_db_instance" "key-application-prod" {
-  identifier                   = "example-rds"
+  identifier                   = "key-application-prod"
   engine                       = "postgres"
   engine_version               = "17.2"
   instance_class               = "db.t3.micro"
