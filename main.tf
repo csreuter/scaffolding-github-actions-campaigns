@@ -236,6 +236,7 @@ resource "aws_s3_bucket" "app" {
 # Classic Load Balancer (minimal setup, no access_logs block)
 resource "aws_elb" "example" {
   name               = "example-elb"
+  availability_zones = ["us-west-2a"]
 
   listener {
     instance_port     = 80
