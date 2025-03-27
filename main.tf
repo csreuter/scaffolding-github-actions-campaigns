@@ -228,10 +228,14 @@ resource "aws_iam_policy" "overly-permissive-policy_0" {
 }
 
 
-# S3 Bucket (no logging block)
-resource "aws_s3_bucket" "s3-no-logs" {
-  bucket = "my-app-bucket-no-logs"
+resource "aws_s3_bucket" "app" {
+  bucket = "my-app-bucket-no-logs-${random_id.suffix.hex}"
 }
+
+resource "random_id" "suffix" {
+  byte_length = 4
+}
+
 
 # Classic Load Balancer (minimal setup, no access_logs block)
 resource "aws_elb" "example" {
