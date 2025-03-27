@@ -228,3 +228,69 @@ resource "aws_iam_policy" "overly-permissive-policy_0" {
 }
 
 
+# S3 Bucket (no logging block)
+resource "aws_s3_bucket" "app" {
+  bucket = "my-app-bucket-no-logs"
+}
+
+# Classic Load Balancer (minimal setup, no access_logs block)
+resource "aws_elb" "example" {
+  name               = "example-elb"
+
+  listener {
+    instance_port     = 80
+    instance_protocol = "HTTP"
+    lb_port           = 80
+    lb_protocol       = "HTTP"
+  }
+
+  health_check {
+    target              = "HTTP:80/"
+    interval            = 30
+    timeout             = 5
+    unhealthy_threshold = 2
+    healthy_threshold   = 2
+  }
+}
+
+# Redshift Cluster (no logging, micro-like config)
+resource "aws_redshift_cluster" "example" {
+  cluster_identifier      = "redshift-cluster-1"
+  node_type               = "dc2.large" # Smallest available for Redshift
+  master_username         = "adminuser"
+  master_password         = "SuperSecretPass123"
+  cluster_type            = "single-node"
+  publicly_accessible     = true
+  skip_final_snapshot     = true
+}
+
+# Opensearch Domain (t3.small.search is smallest allowed)
+resource "aws_opensearch_domain" "example" {
+  domain_name     = "example-domain"
+  engine_version  = "OpenSearch_1.3"
+
+  cluster_config {
+    instance_type  = "t3.small.search"
+    instance_count = 1
+  }
+
+  ebs_options {
+    ebs_enabled = true
+    volume_size = 10
+    volume_type = "gp2"
+  }
+}
+
+# RDS Instance (t3.micro)
+resource "aws_db_instance" "example" {
+  identifier             = "exampledb"
+  engine                 = "mysql"
+  instance_class         = "db.t3.micro"
+  allocated_storage      = 20
+  username               = "adminuser"
+  password               = "SuperSecretPass123"
+  skip_final_snapshot    = true
+  publicly_accessible    = true
+}
+
+
