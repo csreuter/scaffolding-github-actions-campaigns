@@ -229,13 +229,13 @@ resource "aws_iam_policy" "overly-permissive-policy_0" {
 
 
 # S3 Bucket (no logging block)
-resource "aws_s3_bucket" "app" {
+resource "aws_s3_bucket" "s3-no-logs" {
   bucket = "my-app-bucket-no-logs"
 }
 
 # Classic Load Balancer (minimal setup, no access_logs block)
 resource "aws_elb" "example" {
-  name               = "example-elb"
+  name               = "example-elb-no-logs"
   availability_zones = ["us-west-2a"]
 
   listener {
