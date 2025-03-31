@@ -72,7 +72,7 @@ resource "aws_db_instance" "key-application-dev" {
   storage_encrypted            = false
   multi_az                     = true
   deletion_protection          = true
-  performance_insights_enabled = true
+  performance_insights_enabled = false
   skip_final_snapshot          = true
 }
 
