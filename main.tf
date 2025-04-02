@@ -36,6 +36,28 @@ resource "aws_kms_key" "kmskey_6rqH9awtV732LCTF" {
   deletion_window_in_days = 30
 }
 
+resource "aws_iam_role" "rds_monitoring_role" {
+  name = "rds-monitoring-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Action = "sts:AssumeRole",
+      Principal = {
+        Service = "monitoring.rds.amazonaws.com"
+      },
+      Effect = "Allow",
+      Sid    = ""
+    }]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "rds_monitoring_policy" {
+  role       = aws_iam_role.rds_monitoring_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole"
+}
+
+
 # RDS Instance with Best Practices
 resource "aws_db_instance" "example-rds_TJXZTFi3qSy724Fv" {
   identifier                   = "example-rds"
@@ -47,6 +69,9 @@ resource "aws_db_instance" "example-rds_TJXZTFi3qSy724Fv" {
   db_name                      = "app_database"
   username                     = "db_user"
   password                     = "password"
+  monitoring_interval          = 30
+  monitoring_role_arn          = aws_iam_role.rds_monitoring_role.arn
+  enabled_cloutwatch_logs_exports = ["error","general","slowquery"]
   backup_retention_period      = 7
   storage_encrypted            = false
   multi_az                     = true
